@@ -12,6 +12,10 @@
       this.dom.innerHTML = ''
       let firstTab = false
 
+      let container = document.createElement('div')
+      container.className = "tabContainer"
+      this.dom.appendChild(container)
+
       for(let k in window.renderer.tabs){
         let v = window.renderer.tabs[k]
         let element = document.createElement('span')
@@ -26,7 +30,7 @@
           renderer.switchTab(k)
         })
 
-        this.dom.appendChild(element)
+        container.appendChild(element)
       }
 
       $('.tabs span', 0).classList.add('active')
